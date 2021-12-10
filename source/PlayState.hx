@@ -2475,12 +2475,20 @@ class PlayState extends MusicBeatState
 	}
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
+	case'Modchart':
+	        var value:Int = Std.parseInt(value1);
+	                 if value1 == 0 then
+            noteTweenX("x1",0,newnotePosX,duration,"quartInOut");
+            noteTweenY("y1",0,newnotePosY,duration,"quartInOut");
+            noteTweenAngle("r1",0,rotation,duration, "quartInOut");
+            noteTweenAlpha("o1",0,opacity,duration,"quartInOut");
+        elseif value1 == 1 then
 		switch(eventName) {
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
 					case 'bf' | 'boyfriend' | '0':
-						value = 0;
+						value = 0:
 					case 'gf' | 'girlfriend' | '1':
 						value = 1;
 				}
